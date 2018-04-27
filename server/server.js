@@ -12,16 +12,16 @@ const User = mongoose.model('user', new mongoose.Schema({
     age: {type: Number, require: true}
 })) // 创建一个 user 文档（即 user 表）
 // 新增一条数据 （create 方法）
-// User.create({
-//     name: 'xiaohuang',
-//     age: 29
-// }, function(err, doc) {
-//     if(!err) {
-//         console.log(doc);
-//     } else {
-//         console.log(err);
-//     }
-// })
+User.create({
+    name: 'xiaohuang',
+    age: 29
+}, function(err, doc) {
+    if(!err) {
+        console.log(doc);
+    } else {
+        console.log(err);
+    }
+})
 
 // 删除数据 
 // User.remove({name: 'xiaoming'}, function(err, doc) {
