@@ -15,6 +15,7 @@ import register from './registerServiceWorker';
 import AuthRoute from './component/authroute/authroute';
 import BossInfo from './container/bossoinfo/bossinfo';
 import GeniusInfo from './container/geniusinfo/geniusinfo';
+import Dashboard from './component/dashboard/dashboard';
 
 const store = createStore(reducers, compose(
     applyMiddleware(thunk),
@@ -30,6 +31,8 @@ ReactDOM.render(
                 <Route path="/geniusinfo" component={GeniusInfo}></Route>
                 <Route path="/login" component={Login}></Route>
                 <Route path="/register" component={Register}></Route>
+                {/* 没有命中任何路由显示的页面 */}
+                <Route component={Dashboard}></Route>
             </div>
         </BrowserRouter>
     </Provider>),
