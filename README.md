@@ -1,0 +1,14 @@
+## 另外需要安装的包
+- webApp
+ - redux
+ - redux-thunk
+ - react-redux
+ - react-router-dom
+ - axios 网络请求
+ - antd-mobile
+ - prop-types 属性检测
+- nodejs
+ - express
+ - cookie-parser
+- mongodb
+ - mongoose 链接数据库
