@@ -27,12 +27,13 @@ ReactDOM.render(
         <BrowserRouter>
             <div>
                 <AuthRoute></AuthRoute>
-                <Route path="/bossinfo" component={BossInfo}></Route>
-                <Route path="/geniusinfo" component={GeniusInfo}></Route>
-                <Route path="/login" component={Login}></Route>
-                <Route path="/register" component={Register}></Route>
-                {/* 没有命中任何路由显示的页面 */}
-                <Route component={Dashboard}></Route>
+                <Switch>
+                    <Route path="/bossinfo" component={BossInfo}></Route>
+                    <Route path="/geniusinfo" component={GeniusInfo}></Route>
+                    <Route path="/login" component={Login}></Route>
+                    <Route path="/register" component={Register}></Route>
+                    <Route component={Dashboard}></Route>
+                </Switch>
             </div>
         </BrowserRouter>
     </Provider>),

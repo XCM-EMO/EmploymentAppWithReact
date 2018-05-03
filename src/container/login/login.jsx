@@ -5,6 +5,46 @@ import { login } from '../../redux/user.redux';
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom';
 
+// 高阶组件 —— 函数
+function WrapperHello(Comp) {
+    // 反向继承
+    class WrapComp extends Comp {
+        componentDidMount() {
+            console.log('高阶组件新增的生命周期，加载完成');
+        }
+        render() {
+            return(
+                <Comp></Comp>
+            )
+        }
+    }
+    // 属性代理
+    /*
+    class WrapComp extends React.Component {
+        render() {
+            return (
+                <div>
+                    <p>这是HOC高阶组件特有的元素</p>
+                    <Comp {...this.props}></Comp>
+                </div>)
+        }
+    }
+    */
+    return WrapComp
+}
+
+// 高阶组件使用
+/*
+@WrapperHello
+class Hello extends React.Component {
+    render() {
+        return (
+            <div>Hello React</div>
+        )
+    }
+}
+*/
+
 @connect(
     state => state.user,
     {
@@ -35,7 +75,7 @@ class Login extends React.Component {
     render() {
         return (
             <div>
-                {this.props.redirectTo && <Redirect to={this.props.redirectTo}/>}
+                {this.props.redirectTo && <Redirect to={this.props.redirectTo} />}
                 <Logo></Logo>
                 <div>我是登录页</div>
                 <WingBlank>

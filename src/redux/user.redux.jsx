@@ -5,6 +5,7 @@ const AUTH_SUCCESS = 'AUTH_SUCCESS';
 const ERROR_MSG = 'ERROR_MSG';
 // 数据加载
 const LOAD_DATA = 'LOAD_DATA';
+const LOGOUT = 'LOGOUT';
 
 const initState = {
     redirectTo: '', // 去到哪一页
@@ -19,6 +20,8 @@ export function user(state = initState, action) {
     switch (action.type) {
         case LOAD_DATA:
             return { ...state, ...action.payload }
+        case LOGOUT: 
+            return {...initState, redirectTo: '/login'}
         case AUTH_SUCCESS:
             return { ...state, msg: '', redirectTo: getRedirectPath(action.payload), ...action.payload }
         case ERROR_MSG:
@@ -87,4 +90,8 @@ export function update(info) {
             }
         })
     }
+}
+// action : 注销登录
+export function logoutSubmit() {
+    return { type: LOGOUT }
 }
