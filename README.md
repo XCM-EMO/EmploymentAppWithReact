@@ -1,19 +1,19 @@
 ## 另外需要安装的包
 - webApp
- - redux
- - redux-thunk
- - react-redux
- - react-router-dom
- - axios 网络请求
- - antd-mobile
- - prop-types 属性检测
+  - redux
+  - redux-thunk
+  - react-redux
+  - react-router-dom
+  - axios 网络请求
+  - antd-mobile
+  - prop-types 属性检测
 - nodejs
- - express
- - cookie-parser
- - socket.io
- - socket.io-client
+  - express
+  - cookie-parser
+  - socket.io
+  - socket.io-client
 - mongodb
- - mongoose 链接数据库
+  - mongoose 链接数据库
 
 ## 高阶组件
 - 所谓高阶组件，就是定义一个函数，传入一个组件，返回另外一个组件。例如 `react-redux` 中的装饰器方法 `@connect`
