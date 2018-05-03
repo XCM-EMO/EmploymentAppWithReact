@@ -10,6 +10,8 @@
 - nodejs
  - express
  - cookie-parser
+ - socket.io
+ - socket.io-client
 - mongodb
  - mongoose 链接数据库
 

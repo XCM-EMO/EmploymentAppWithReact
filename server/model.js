@@ -27,7 +27,20 @@ const models = {
         'money': {type: String}
     },
     // 聊天信息
-    chat: {}
+    chat: {
+        // 聊天室 id
+        'chatid': {type: String, require: true},
+        // 来自
+        'from': {type: String, require: true},
+        // 发送到
+        'to': {type: String, require: true},
+        // 是否阅读
+        'read': {type: Boolean, default: false},
+        // 聊天内容
+        'content': {type: String, require: true, default: ''},
+        // 聊天时间
+        'create_time': {type: Number, default: new Date().getTime()}
+    }
 }
 
 // 创建表（ user表,chat表 ）

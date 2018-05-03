@@ -70,7 +70,6 @@ class Login extends React.Component {
             <div>
                 {this.props.redirectTo && <Redirect to={this.props.redirectTo} />}
                 <Logo></Logo>
-                <div>我是登录页</div>
                 <WingBlank>
                     <List>
                         {this.props.msg && <p className="error-msg">{this.props.msg}</p>}
