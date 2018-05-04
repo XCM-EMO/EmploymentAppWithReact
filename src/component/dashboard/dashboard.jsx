@@ -6,18 +6,27 @@ import NavLinkBar from '../navlink/navlink';
 import Boss from '../boss/boss';
 import Genius from '../genius/genius';
 import User from '../user/user';
+import { getMsgList, recvMsg } from '../../redux/chat.redux';
 
 function Msg() {
     return <h2>消息列表页面</h2>
 }
 
 @connect(
-    state => state
+    state => state,
+    { getMsgList, recvMsg }
 )
 class DashBoard extends React.Component {
     constructor(props) {
         super(props)
         this.state = {}
+    }
+    componentDidMount() {
+        if (!this.props.chat.chatmsg.length) {
+            this.props.getMsgList()
+            // 监听接收的新消息
+            this.props.recvMsg()
+        }
     }
     render() {
         const { pathname } = this.props.location;

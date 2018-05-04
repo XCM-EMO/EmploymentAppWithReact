@@ -6,3 +6,8 @@ export function getRedirectPath({type, avatar}) {
     }
     return url;
 }
+
+// 过滤聊天信息显示
+export function getChatId(userId, targetId) {
+    return [userId, targetId].sort().join('_')
+}
