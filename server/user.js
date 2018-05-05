@@ -111,6 +111,23 @@ Router.get('/getmsglist', function(req, res) {
     })
 })
 
+// 读取消息
+Router.post('/readmsg', function(req, res) {
+    const userid = req.cookies.userid;
+    const {from} = req.body;
+    Chat.update(
+        {from, to: userid}, 
+        {'$set': {read: true}}, 
+        {'multi': true}, // 修改全局
+        function(err, doc) {
+        console.log(doc);
+        if(!err) {
+            return res.json({code: 0})
+        }
+        return res.json({code: 1, msg: '修改失败'})
+    })
+})
+
 // 加盐
 function md5Pwd(pwd) {
     const salt = 'imooc_is_good';
